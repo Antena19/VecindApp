@@ -3,6 +3,7 @@
 // Este archivo controla cómo TypeScript compila el código a JavaScript.
 {
   "compilerOptions": {
+    "types": ["node", "@types/babel__traverse"],
     // Versión de JavaScript a la que se compilará el código
     // ES2016 es compatible con Node.js moderno
     "target": "es2016",
@@ -15,9 +16,12 @@
     
     // Activa reglas estrictas de TypeScript para detectar más errores
     "strict": true,
-    
+        
     // Permite importar módulos de CommonJS usando la sintaxis de ES6
     "esModuleInterop": true,
+
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     
     // Evita verificar los archivos de definición de tipos de las bibliotecas
     // Esto acelera la compilación

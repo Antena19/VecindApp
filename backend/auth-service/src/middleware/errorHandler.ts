@@ -1,6 +1,7 @@
 // Archivo: src/middleware/errorHandler.ts
 
 import { Request, Response, NextFunction } from 'express';
+import logger from '../utils/logger';
 
 // Interfaz para errores personalizados
 interface CustomError extends Error {
@@ -41,8 +42,16 @@ export const errorHandler = (
     ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
   };
 
-  // Registro de error (puedes expandir esto con un sistema de logging más adelante)
-  console.error(`[ERROR] ${err.message}`);
+  // Registro de error detallado
+  logger.error(`Error en ${req.method} ${req.path}`, {
+    statusCode: err.statusCode,
+    message: err.message,
+    method: req.method,
+    path: req.path,
+    body: req.body,
+    user: req.user?.id,
+    stack: err.stack
+  });
 
   // Enviar respuesta de error
   res.status(err.statusCode).json(errorResponse);
