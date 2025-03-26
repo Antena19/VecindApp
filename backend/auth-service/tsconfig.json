@@ -1,0 +1,38 @@
+// Archivo: tsconfig.json
+// Propósito: Configuración de TypeScript para el proyecto.
+// Este archivo controla cómo TypeScript compila el código a JavaScript.
+{
+  "compilerOptions": {
+    // Versión de JavaScript a la que se compilará el código
+    // ES2016 es compatible con Node.js moderno
+    "target": "es2016",
+    
+    // Sistema de módulos que usará (CommonJS es el estándar en Node.js)
+    "module": "commonjs",
+    
+    // Carpeta donde se guardarán los archivos compilados (.js)
+    "outDir": "./dist",
+    
+    // Activa reglas estrictas de TypeScript para detectar más errores
+    "strict": true,
+    
+    // Permite importar módulos de CommonJS usando la sintaxis de ES6
+    "esModuleInterop": true,
+    
+    // Evita verificar los archivos de definición de tipos de las bibliotecas
+    // Esto acelera la compilación
+    "skipLibCheck": true,
+    
+    // Asegura que los nombres de archivos importados respeten mayúsculas/minúsculas
+    // Importante para sistemas operativos que distinguen mayúsculas de minúsculas
+    "forceConsistentCasingInFileNames": true
+  },
+  
+  // Patrones de archivos que se incluirán en la compilación
+  // Incluye todos los archivos dentro de la carpeta src
+  "include": ["src/**/*"],
+  
+  // Patrones de archivos que se excluirán de la compilación
+  // Excluye la carpeta node_modules que contiene las dependencias
+  "exclude": ["node_modules"]
+}
