@@ -1,2 +1,30 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+// Colores
+$color-primary: #2C3E50;
+$color-secondary: #00897B;
+$color-card-background: #F0F0F0;
+$color-text-dark: #000000;
+$color-text-light: #FFFFFF;
+$color-app-background: #F5F5DC;
+
+// Tamaños de fuente
+$font-size-small: 12px;
+$font-size-medium: 16px;
+$font-size-large: 20px;
+
+// Espaciados
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 24px;
+
+// Sombras
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+// Bordes
+$border-radius: 4px;
+
+// Breakpoints para media queries
+$breakpoint-small: 600px;
+$breakpoint-medium: 960px;
+$breakpoint-large: 1280px;
