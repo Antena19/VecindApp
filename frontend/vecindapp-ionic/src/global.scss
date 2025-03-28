@@ -1,37 +1,55 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
 
-/* Core CSS required for Ionic components to work properly */
-@import "@ionic/angular/css/core.css";
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
 
-/* Basic CSS for apps built with Ionic */
-@import "@ionic/angular/css/normalize.css";
-@import "@ionic/angular/css/structure.css";
-@import "@ionic/angular/css/typography.css";
-@import "@ionic/angular/css/display.css";
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}// Importar funciones de Angular Material
+@use '@angular/material' as mat;
 
-/* Optional CSS utils that can be commented out */
-@import "@ionic/angular/css/padding.css";
-@import "@ionic/angular/css/float-elements.css";
-@import "@ionic/angular/css/text-alignment.css";
-@import "@ionic/angular/css/text-transformation.css";
-@import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+// Colores personalizados
+$color-primary: #2C3E50;
+$color-secondary: #00897B;
+$color-card-background: #F0F0F0;
+$color-text-dark: #000000;
+$color-text-light: #FFFFFF;
+$color-app-background: #F5F5DC;
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+// Crear las paletas de color personalizadas
+$primary: mat-palette($mat-blue-grey, 800, 600, 400); // Ajusta el tono según tus preferencias
+$accent: mat-palette($mat-teal, 600, 500, 400); // Ajusta el tono según tus preferencias
+$warn: mat-palette($mat-red);
+
+// Crear el tema personalizado
+$custom-theme: mat-light-theme($primary, $accent, $warn);
+
+// Aplicar el tema
+@include angular-material-theme($custom-theme);
+
+// Aplicar el fondo de la aplicación globalmente
+body {
+  background-color: $color-app-background;
+}
+
+// Estilos adicionales si los deseas
+.mat-card {
+  background-color: $color-card-background;
+}
+
+.mat-toolbar {
+  background-color: $color-primary;
+  color: $color-text-light;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
