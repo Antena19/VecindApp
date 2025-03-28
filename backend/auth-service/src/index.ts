@@ -34,7 +34,12 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middlewares
-app.use(cors()); // Habilitar CORS para todas las rutas
+app.use(cors({
+  origin: ['http://localhost:4200', 'http://localhost:8100'], // URL del frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 app.use(helmet()); // Añadir headers de seguridad
 app.use(express.json()); // Parsear JSON en solicitudes
 app.use(express.urlencoded({ extended: true })); // Parsear datos de formularios
